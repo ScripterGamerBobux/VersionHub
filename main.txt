@@ -1,0 +1,230 @@
+local Library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
+		local Window = Library.CreateLib("VERSION LIFE [V2]", "BloodTheme")
+		local Tab = Window:NewTab("Combat")
+		local Local2 = Window:NewTab("LocalPlayer")
+		local Local = Local2:NewSection("LocalPlayer")
+		local Misc = Window:NewTab("Miscellaneous")
+		local MiscSection = Misc:NewSection("Miscellaneous")
+		local Section = Tab:NewSection("Combat")
+		local Section2 = Tab:NewSection("Gun Mods")
+		local Others = Tab:NewSection("Others")
+		local Teleports = Window:NewTab("Teleports")
+		local Section44 = Teleports:NewSection("Teleports")
+		local AdminCommands = Window:NewTab("Admin Commands")
+		local Credits = Window:NewTab("Credits")
+		local CreditsSection = Credits:NewSection("Credits")
+		local AdminSection = AdminCommands:NewSection("Admin")
+		local Commands = AdminCommands:NewSection("Commands:")
+	
+	
+		--Guns For Gun Mods
+	
+	
+	
+		Section:NewButton("Gives You All Items(No Gamepasses)", "Grab All Items!", function()
+			print("All Weapons Given!")
+			workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+			workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver.M9.ITEMPICKUP)
+			workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.single.Hammer.ITEMPICKUP)
+			workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP)
+		end)
+		Section:NewToggle("Invisible Guns", "Makes Your Guns Invisible(NOT FE)", function(state)
+			if state then
+	
+				while wait() do
+	
+					for i,v in pairs(game.Players.LocalPlayer.Backpack["AK-47"].Model:GetChildren()) do
+						if v.Name == "Part" then
+							v.Transparency = 1
+						end
+					end
+	
+					local M9 = game.Players.LocalPlayer.Backpack["M9"].Part
+	
+					M9.Transparency = 1
+	
+					for i,a in pairs(game.Players.LocalPlayer.Backpack["Remington 870"].Model:GetChildren()) do
+						if a.Name == "Part" then
+							a.Transparency = 1
+						end
+					end
+				end
+			else
+	
+	
+				while wait() do
+					for i,v in pairs(game.Players.LocalPlayer.Backpack["AK-47"].Model:GetChildren()) do
+						if v.Name == "Part" then
+							v.Transparency = 0
+						end
+					end
+	
+					local M9 = game.Players.LocalPlayer.Backpack["M9"].Part
+	
+					M9.Transparency = 0
+	
+					for i,b in pairs(game.Players.LocalPlayer.Backpack["Remington 870"].Model:GetChildren()) do
+						if b.Name == "Part" then
+							b.Transparency = 0
+						end
+					end
+				end
+			end
+		end)
+		MiscSection:NewButton("Remove all Doors", "Removes Every Door!", function()
+			for i,d in pairs(game.Workspace.Doors:GetChildren()) do
+				if d.ClassName == "Model" then
+					d:Destroy()
+				end
+			end
+		end)
+	
+		Section2:NewButton("Auto Fire", "Turns On AutoFire!", function()
+			while wait() do
+				local Remington = require(game.Players.LocalPlayer.Backpack["Remington 870"].GunStates)
+				local Pistol = require(game.Players.LocalPlayer.Backpack.M9.GunStates)
+				local AK = require(game.Players.LocalPlayer.Backpack["AK-47"].GunStates)
+				Remington["AutoFire"] = true
+				Pistol["AutoFire"] = true
+				AK["AutoFire"] = true
+			end
+		end)
+		Section2:NewButton("Fire Rate", "Decreases Your Fire Rate!", function()
+			while wait() do
+				local Remington = require(game.Players.LocalPlayer.Backpack["Remington 870"].GunStates)
+				local Pistol = require(game.Players.LocalPlayer.Backpack.M9.GunStates)
+				local AK = require(game.Players.LocalPlayer.Backpack["AK-47"].GunStates)
+				Remington["FireRate"] = 0.00001
+				Pistol["FireRate"] = 0.00001
+				AK["FireRate"] = 0.00001
+			end
+		end)
+		Section2:NewButton("Spread", "Decreases Your Spread!", function()
+			while wait() do
+				local Remington = require(game.Players.LocalPlayer.Backpack["Remington 870"].GunStates)
+				local Pistol = require(game.Players.LocalPlayer.Backpack.M9.GunStates)
+				local AK = require(game.Players.LocalPlayer.Backpack["AK-47"].GunStates)
+				Remington["Spread"] = 0
+				Pistol["Spread"] = 0
+				AK["Spread"] = 0
+			end
+		end)
+		Section2:NewButton("Damage", "Adds More Damage To Other Players!", function()
+			while wait() do
+				local Remington = require(game.Players.LocalPlayer.Backpack["Remington 870"].GunStates)
+				local Pistol = require(game.Players.LocalPlayer.Backpack.M9.GunStates)
+				local AK = require(game.Players.LocalPlayer.Backpack["AK-47"].GunStates)
+				Remington["Damage"] = 99999999999
+				Pistol["Damage"] = 99999999999
+				AK["Damage"] = 99999999999
+			end
+		end)
+		Section2:NewButton("Store Ammo", "Adds More Stored ammo To your guns!", function()
+			while wait() do
+				local Remington = require(game.Players.LocalPlayer.Backpack["Remington 870"].GunStates)
+				local Pistol = require(game.Players.LocalPlayer.Backpack.M9.GunStates)
+				local AK = require(game.Players.LocalPlayer.Backpack["AK-47"].GunStates)
+				Remington["StoredAmmo"] = 999999999999
+				Pistol["StoredAmmo"] = 999999999999
+				AK["StoredAmmo"] = 999999999999
+			end
+		end)
+		Section2:NewButton("Current Ammo", "Adds Ammo!", function()
+			while wait() do
+				local Remington = require(game.Players.LocalPlayer.Backpack["Remington 870"].GunStates)
+				local Pistol = require(game.Players.LocalPlayer.Backpack.M9.GunStates)
+				local AK = require(game.Players.LocalPlayer.Backpack["AK-47"].GunStates)
+				Remington["CurrentAmmo"] = 999999999999
+				Pistol["CurrentAmmo"] = 999999999999
+				AK["CurrentAmmo"] = 999999999999
+			end
+		end)
+	
+		Others:NewTextBox("Reload Time[BROKEN]", "Adds Less Reload Time!", function(txt)
+			print(txt)
+			while wait() do
+				local Remington = require(game.Players.LocalPlayer.Backpack["Remington 870"].GunStates)
+				local Pistol = require(game.Players.LocalPlayer.Backpack.M9.GunStates)
+				local AK = require(game.Players.LocalPlayer.Backpack["AK-47"].GunStates)
+				Remington["ReloadTime"] = txt
+				Pistol["ReloadTime"] = txt
+				AK["ReloadTime"] = txt
+			end
+		end)
+	
+		AdminSection:NewButton("Admin Commands - note The script was not created by me", "Gives You Commands!", function()
+			loadstring(game:HttpGet(('https://raw.githubusercontent.com/XTheMasterX/Scripts/Main/PrisonLife'),true))()
+		end)
+	
+		MiscSection:NewButton("Remove All Fences", "All Fences Will Be Removed!", function()
+			for i,l in pairs(game.Workspace["Prison_Fences"]:GetChildren()) do
+				if l.Name == "fence" then
+					l:Destroy()
+				end
+			end
+		end)
+	
+		MiscSection:NewButton("Remove All Gates", "All Fences Will Be Removed!", function()
+			game.Workspace["Prison_Fences"]["Prison_Gate"]:Destroy()
+			game.Workspace["Prison_Fences"]["gate"]:Destroy()
+		end)
+	
+		Section44:NewButton("Outside of prison", "Teleports You outside of the prison!", function()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(451.6684265136719, 98.0399169921875, 2216.338134765625)
+		end)
+		Section44:NewButton("Prison Yard", "Teleports You to the Prison Yard", function()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(736.4671630859375, 97.99992370605469, 2517.583740234375)
+		end)
+		Section44:NewButton("Kitchen", "Teleports You to the Kitchen!", function()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(906.641845703125, 99.98993682861328, 2237.67333984375)
+		end)
+		Section44:NewButton("Prison Cells", "Teleports You to the Prison Cells!", function()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(919.5551147460938, 99.98998260498047, 2441.700927734375)
+		end)
+		Section44:NewButton("Surveilance Room", "Teleports You to the Surveilance Room!", function()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(795.251953125, 99.98998260498047, 2327.720703125)
+		end)
+		Section44:NewButton("Break Room", "Teleports You to the Break Room!", function()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(800.0896606445312, 99.98998260498047, 2266.71630859375)
+		end)
+		Section44:NewButton("Police Armory", "Teleports You to the Police Armory!", function()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(837.2889404296875, 99.98998260498047, 2270.99658203125)
+		end)
+		Section44:NewButton("Police Room", "Teleports to to the Police Room", function()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(836.5386352539062, 99.98998260498047, 2320.604248046875)
+		end)
+		Section44:NewButton("Cafeteria", "Teleports you to the Cafeteria!", function()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(918.994873046875, 99.98993682861328, 2325.73095703125)
+		end)
+		Section44:NewButton("Criminal Base Inside", "Teleports you to the Criminal Base Inside!", function()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-975.8451538085938, 109.32379150390625, 2053.11376953125)
+		end)
+		-- Commands
+		Commands:NewLabel(":rank player — gives player commands")
+		Commands:NewLabel(":kill player — kills player")
+		Commands:NewLabel(":sa player — spam arrest player")
+		Commands:NewLabel(":crim player — makes player criminal")
+		Commands:NewLabel(":bring player — brings player")
+		Commands:NewLabel(":goto player — makes you go to player")
+		Commands:NewLabel(":void player — voids player")
+		Commands:NewLabel(":key player — gives player keycard")
+		Commands:NewLabel(":cuffs player — gives player handcuffs")
+		Commands:NewLabel(":trap player — traps player")
+		Commands:NewLabel(":yard player — brings player to yard")
+		Commands:NewLabel(":base player — brings player to criminal base")
+		Commands:NewLabel(":prison player — brings player to prison")
+		Commands:NewLabel(":lk — loopkills player")
+		Commands:NewLabel(":aura — gives player kill aura")
+		Commands:NewLabel(":virus — makes anyone who touch player dies")
+		Commands:NewLabel(":oof — kills everyone")
+		Commands:NewLabel(":spike — lag spike")
+		Commands:NewLabel(":bspike — big lag spike")
+		Commands:NewLabel(":lag — lags the server")
+		Commands:NewLabel(":crash — crashes the server")
+		Commands:NewLabel(":tk player — teleport you to player and kills them")
+		Commands:NewLabel(":ltk player — loops tpkill")
+		Commands:NewLabel(":logs — prints all used cmds")
+	
+	
+		CreditsSection:NewLabel("SCRIPTS MADE BY: @.im_dev")
+		CreditsSection:NewLabel("Friends help : Mizz#3135 thank you for helping🤝")
